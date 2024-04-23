@@ -41,6 +41,7 @@ class _KidsShoesState extends State<KidsShoes> {
                           category: shoe["category"],
                           id: shoe["id"],
                           name: shoe["name"],
+                          sizes: shoe["sizes"],
                           image: shoe["imageurl"][0]);
                     });
               }

@@ -6,6 +6,7 @@ import 'package:shoesapp/Screens/CartScreen.dart';
 import 'package:shoesapp/Screens/HomeScreen.dart';
 import 'package:shoesapp/Screens/ProfileScreen.dart';
 import 'package:shoesapp/Screens/SearchScreen.dart';
+import 'package:shoesapp/Screens/SingleItemScreen.dart';
 import 'Constants/SingleItemBottomNavIcon.dart';
 import 'Views/bottom_nav.dart';
 
@@ -33,6 +34,7 @@ class _MainScreenState extends State<MainScreen> {
       builder: (context,mainScreenNotifier,child){
         return Scaffold(
           backgroundColor: Color(0xFFE2E2E2),
+          // body: SingleItemScreen(),
           body: screensList[mainScreenNotifier.pageIndex],
           /// Bottom Navbar
           bottomNavigationBar:const BottomNavbar(),

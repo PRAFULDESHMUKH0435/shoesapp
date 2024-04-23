@@ -36,12 +36,14 @@ class _MensShoesState extends State<MensShoes> {
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context,index){
                       final shoe = snapshot.data![index];
+                      print("Single Shoe Data ${shoe}");
                       return ProductCard(
                           price: shoe["price"],
                           category: shoe["category"],
                           id: shoe["id"],
                           name: shoe["name"],
-                          image: shoe["imageurl"][0]);
+                          sizes: shoe["sizes"],
+                          image: shoe["imageurl"]);
                     });
               }
             },

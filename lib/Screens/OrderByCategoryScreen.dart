@@ -21,6 +21,14 @@ class _OrderByCategoryScreenState extends State<OrderByCategoryScreen>with Ticke
       length: 3,
       vsync: this);
 
+   static List<String> brandimages =[
+    "https://w7.pngwing.com/pngs/578/20/png-transparent-adidas-adidas-angle-text-logo-thumbnail.png",
+     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBVUR48hf18ICvQ47NdwdHrKqNCTNI2wrJQIo8bWramZukyBdGkBKg6R5z4FqMOlvtr4M&usqp=CAU",
+     "https://qph.cf2.quoracdn.net/main-qimg-46e4cf54e93ad179ff19843dde22f4d6-lq",
+     "https://i0.wp.com/mynicefootwear.com/wp-content/uploads/2022/02/Sparx.png?fit=300%2C300&ssl=1",
+     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBo8sPAn5cMYZ1LnICfPPLh_tJGVTa853J6xRb2dsq0A&s"
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +54,9 @@ class _OrderByCategoryScreenState extends State<OrderByCategoryScreen>with Ticke
                       child: Icon(Icons.close,color: Colors.white,size: 30,)),
                   GestureDetector(
                       onTap:(){
-                        OpenFilter(context);
+                        OpenFilter(context,brandimages);
                       },
-                      child: Icon(AntIcons.filterTwotone,color: Colors.white,size: 30,))
+                      child: Icon(Icons.filter_alt_outlined,color: Colors.white,size: 30,))
                 ],
               ),
             ),
@@ -79,9 +87,11 @@ class _OrderByCategoryScreenState extends State<OrderByCategoryScreen>with Ticke
                         itemBuilder: (context,index){
                           var singleitem = snapshot.data![index];
                           return StaggeredCard(
-                            imgurl: singleitem["imageurl"][0],
+                            imgurl: singleitem["imageurl"],
                             name: singleitem["name"],
                             price: singleitem["price"],
+                            sizes: singleitem["sizes"],
+                            category: singleitem["category"],
                           );
                         });
                   }),
@@ -96,7 +106,7 @@ class _OrderByCategoryScreenState extends State<OrderByCategoryScreen>with Ticke
   }
 }
 
-Future<dynamic> OpenFilter(context) {
+Future<dynamic> OpenFilter(context,brandimages) {
   double  slidervalue =0.5;
   return showModalBottomSheet(
       isScrollControlled: true,
@@ -163,9 +173,9 @@ Future<dynamic> OpenFilter(context) {
                      height: 120,
                      child: ListView.builder(
                          scrollDirection: Axis.horizontal,
-                         itemCount: 4,
+                         itemCount: brandimages.length,
                          itemBuilder: (context,index){
-                           return SingleItemBrandCard("https://w7.pngwing.com/pngs/578/20/png-transparent-adidas-adidas-angle-text-logo-thumbnail.png");
+                           return SingleItemBrandCard(brandimages[index]);
                          }),
                    )
                  ],
