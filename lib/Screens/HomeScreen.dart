@@ -1,15 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:shoesapp/Constants/productcard.dart';
 import 'package:shoesapp/Services/helper.dart';
 import '../Constants/Style/appstyle.dart';
-import 'package:antdesign_icons/antdesign_icons.dart';
-
-import '../Models/sneaker_model.dart';
 import 'KidsShoes.dart';
 import 'MensShoes.dart';
 import 'WomensShoes.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

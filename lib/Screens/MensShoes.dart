@@ -24,7 +24,7 @@ class _MensShoesState extends State<MensShoes> {
             future: widget.category,
             builder: (context,snapshot){
               print("Snasphot Data Is ${snapshot.data}");
-              if(snapshot.connectionState==SystemMouseCursors.wait){
+              if(snapshot.connectionState==ConnectionState.waiting){
                 return Center(child: CircularProgressIndicator());
               }else if(snapshot.hasError){
                 return Text(snapshot.error.toString(),style: TextStyle(fontSize: 24,color: Colors.white),);
